@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Confirmation de suppréssion</h1>
+    <p>Etes vous sûr de vouloir supprimer l'employé {{employé.prenom}} {{employé.nom}}</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Ok">
+        <button><a href="{% url 'liste_employés' %}">Annuler</a></button>
+    </form>
+</body>
+</html>

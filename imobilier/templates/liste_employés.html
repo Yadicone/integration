@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <button><a href="{% url 'ajout_employé' %}">Ajouter</a></button>
+    <table>
+        <thead>
+            <tr>
+                <th>NOM</th>
+                <th>PRENOM</th>
+                <th>DATE DE NAISSANCE</th>
+                <th>EMAIL</th>
+                <th>POSTE</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for Employé in Employés %}
+                <tr>
+                    <td>{{ employé.nom }}</td>
+                    <td>{{ employé.prenom }}</td>
+                    <td>{{ employé.date_de_naissance }}</td>
+                    <td>{{ employé.email }}</td>
+                    <td>{{ employé.poste }}</td>
+                    <td>
+                        <button><a href="{% url 'modifier_employé' employé.id %}">Modifier</a></button>
+                        <button><a href="{% url 'supprimer_employé' employé.id %}">Supprimer</a></button>
+                        <button><a href="{% url 'detail_employé' employé.id %}">Détails</a></button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
